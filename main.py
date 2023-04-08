@@ -11,11 +11,11 @@ RENDER_MODE = "rgb_array"
 RANDOM_SEED = 42
 
 # HyperParameters
-REQUIRED_MEAN_REWARD = 500  # stop training if REWARD_BUFFER_SIZE mean reward is >= REQUIRED_MEAN_REWARD
+REQUIRED_MEAN_REWARD = 500  # stop training if mean and median reward is >= REQUIRED_MEAN_REWARD
 REWARD_BUFFER_SIZE = 50  # check mean and median reward score over last REWARD_BUFFER_SIZE episodes
 
 HIDDEN_LAYER_SIZE = 128  # number of neurons in hidden layer
-GAMMA = 0.99  # discount factor
+GAMMA = 0.99  # discount factor for future rewards
 BUFFER_SIZE = 50000  # replay buffer size
 MIN_REPLAY_SIZE = 1000  # minimum replay buffer size before training
 BATCH_SIZE = 32  # minibatch size
