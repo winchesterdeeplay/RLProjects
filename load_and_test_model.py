@@ -23,3 +23,4 @@ if __name__ == "__main__":
         steps += 1
         rewards += reward
         print("Num steps: {} reward {}: ".format(steps, rewards))
+    env.close()
