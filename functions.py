@@ -25,7 +25,8 @@ def make_video(env: gym.Env, net: Net) -> None:
 
     while not done:
         action = net.action(observation)
-        observation, reward, done, _, _ = env.step(action)
+        observation, reward, terminated, truncated, _ = env.step(action)
+        done = terminated or truncated
         steps += 1
         rewards += reward
     print("Testing steps: {} rewards {}: ".format(steps, rewards))
@@ -96,13 +97,15 @@ def train_dqn(
 
     torch.manual_seed(random_seed)
     rng = np.random.default_rng(random_seed)
+    np.random.seed(random_seed)
 
     obs = env.reset()[0]
     episode_reward = 0.0
 
     for step in itertools.count():
         action = epsilon_greedy(env, step, online_net, obs, epsilon_decay, epsilon_start, epsilon_end, rng)
-        next_obs, reward, done, _, _ = env.step(action)
+        next_obs, reward, terminated, truncated, _ = env.step(action)
+        done = terminated or truncated
         transition = (obs, action, reward, done, next_obs)
         replay_buffer.append(transition)
         obs = next_obs

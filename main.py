@@ -14,7 +14,7 @@ RANDOM_SEED = 42
 REQUIRED_MEAN_REWARD = 500  # stop training if mean and median reward is >= REQUIRED_MEAN_REWARD
 REWARD_BUFFER_SIZE = 50  # check mean and median reward score over last REWARD_BUFFER_SIZE episodes
 
-HIDDEN_LAYER_SIZE = 128  # number of neurons in hidden layer
+HIDDEN_LAYER_SIZE = 512  # number of neurons in hidden layer
 GAMMA = 0.99  # discount factor for future rewards
 BUFFER_SIZE = 50000  # replay buffer size
 MIN_REPLAY_SIZE = 1000  # minimum replay buffer size before training
@@ -23,8 +23,8 @@ LEARNING_RATE = 5e-4  # learning rate (alpha)
 
 EPSILON_DECAY = 10000
 EPSILON_START = 1.0
-EPSILON_END = 0.2
-TARGET_UPDATE_FREQ = 1000  # how often to update target network (in steps)
+EPSILON_END = 0.02
+TARGET_UPDATE_FREQ = 500  # how often to update target network (in steps)
 
 if __name__ == "__main__":
     # Initialize environment
