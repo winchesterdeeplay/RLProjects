@@ -1,7 +1,4 @@
-venv
 .DS_Store
 .idea
-__pycache__
-**.mp4
-**.json
-**.pth
+**.zip
+venv

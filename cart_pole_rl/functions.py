@@ -136,7 +136,7 @@ def train_dqn(
         q_values = online_net(obses_t)
         action_q_values = q_values.gather(dim=1, index=actions_t)
 
-        loss = torch.nn.functional.smooth_l1_loss(action_q_values, targets)  # значения от -1 до 1 - l1, иначе ^2 штраф
+        loss = torch.nn.functional.smooth_l1_loss(action_q_values, targets)  # ToDo
 
         optimizer.zero_grad()
         loss.backward()
